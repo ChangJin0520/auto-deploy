@@ -4,10 +4,10 @@ const runScript = (appName) => {
     shell.exec('whoami');
 
     /** 到主目录下 */
-    shell.exec('cd ～');
+    shell.exec(`cd /root/${appName}`);
 
     /** 进入 appName 项目中 */
-    shell.exec(`cd ${appName}`);
+    // shell.exec(`cd ${appName}`);
 
     /** git 拉去代码 */
     shell.exec('git pull');
