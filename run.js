@@ -1,10 +1,8 @@
 const shell = require('shelljs');
 
 const runScript = (appName) => {
-    shell.exec('whoami');
-
     /** 到主目录下 */
-    shell.exec(`cd /root/${appName} && git pull && node app.js`);
+    shell.exec(`cd /root/${appName} && git pull && node app.js`, { async:true });
 
     /** 进入 appName 项目中 */
     // shell.exec(`cd ${appName}`);
