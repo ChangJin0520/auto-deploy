@@ -2,7 +2,7 @@ const shell = require('shelljs');
 
 const runScript = (appName) => {
     /** 停止原来的服务 */
-    shell.exec(`lsof -l -R | grep node | grep root/${appName} -m 1 | awk '{print $2}' | xargs`)
+    shell.exec(`lsof -l -R | grep node | grep root/${appName} -m 1 | awk '{print $2}' | xargs kill -s 9`)
     
     /** 到主目录下 */
     shell.exec(`cd /root/${appName} && git pull && node app.js`, { async:true });
