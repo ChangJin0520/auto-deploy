@@ -1,10 +1,21 @@
 const Koa = require('koa');
+const KoaRouter = require('@koa/router');
+const { runScript } = require('./run');
 
 const app = new Koa();
+const router = new KoaRouter();
 
-app.use(async ctx => {
-    ctx.body = 'Hello World!';
-})
+router.post('/simple-server', (ctx, next) => {
+    const request = ctx.request;
+
+    runScript('simple-server');
+
+    next();
+});
+
+app
+    .use(router.routes())
+    .use(router.allowedMethods());
 
 app.listen(3003);
 
