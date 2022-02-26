@@ -1,6 +1,8 @@
 const shell = require('shelljs');
 
 const runScript = (appName) => {
+    shell.exec('whoami');
+
     /** 到主目录下 */
     shell.exec('cd ～');
 
@@ -8,7 +10,6 @@ const runScript = (appName) => {
     shell.exec(`cd ${appName}`);
 
     /** git 拉去代码 */
-
     shell.exec('git pull');
 
     /** 停止原来的服务 */

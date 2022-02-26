@@ -8,6 +8,8 @@ const router = new KoaRouter();
 router.post('/simple-server', (ctx, next) => {
     const request = ctx.request;
 
+    console.log(request);
+
     runScript('simple-server');
 
     next();
