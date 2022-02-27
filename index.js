@@ -6,14 +6,22 @@ const app = new Koa();
 const router = new KoaRouter();
 
 router.post('/simple-server', (ctx, next) => {
-    const request = ctx.request;
+    // const request = ctx.request;
 
-    console.log(request);
+    // console.log(request);
 
     runScript('simple-server');
 
     next();
 });
+
+router.post('/simple', (ctx, next) => {
+    // const request = ctx.request;
+
+    runScript('simple');
+
+    next();
+})
 
 app
     .use(router.routes())
